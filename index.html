@@ -11,84 +11,63 @@ body { margin:0; padding:0; }
 #map { 
 position:relative; 
 top:0; bottom:0; width:100%;
-margin-left: 10% }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 10%;
-    background: #0c7be2;
-    position: fixed;
-    height: 100%; /* makes it so the sidebar spans the entire window height */
-    overflow: auto; /* enables sidebar scrolling */
-      }
-    li a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 16px;
-    }
-      /* li a:hover {
-        background-color: #555555;
-        color: #FFFFFF;
-      } */
-    li a.active {
-        background-color: #4CAF50;
-        color: white;
-      }
-    li a:hover:not(.active){
-        background-color: #555;
-        color: white;
+}
 </style>
 </head>
+
 <body>
  
 <style>
 
 .btn {
-display: block;
+display: inline-block;
 position: relative;
-margin: 0px auto;
-width: 10%;
-height: 40px;
+margin: 10px auto;
+width: 300px;
+height: 55px;
 padding: 10px;
 border: none;
 border-radius: 3px;
-font-size: 12px;
+font-family: "Gill Sans";
+font-size: 28px;
 text-align: center;
 color: #fff;
-background: #ee8a65;
+background:rgb(71, 4, 134);
 }
 
-#title {display: block;
-position: relative;
-margin: 0px auto;
-width: 10%;
-height: 30px;
-padding: 10px;
-border: none;
-border-radius: 3px;
-font-size: 30px;
+.btn:hover {opacity: 0.6}
+
+.btn-group {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#title {
+font-family: "Gill Sans";
+font-size: 40px;
 text-align: center;
-color: #fff;
-background: #0c7be2;
+color: rgb(71, 4, 134);
+}
+
+#subtitle {
+font-family: "Gill Sans";
+font-size: 20px;
+text-align: center;
+color: rgb(71, 4, 134);
 }
 </style>
 
 
-<div id="sidebar">
-    <ul>
-    <li><a class="active" >Go Here</a></li>
-    <li><a>Colombia</a></li>
-    <li><a>Ethiopia</a></li>
-    <li><a>United Kingdom</a></li>
-    </ul>
-    </div>
 <h1 id='title'>Book Map</h1>
+<h3 id='subtitle'> Find a book set here</h3>
+<br>
+<div class=btn-group>
 <button class="btn" id='move1'>Colombia</button>
 <button class="btn" id='move2'>Ethiopia</button>
 <button class="btn" id='move3'>United Kingdom</button>
+</div>
 <br>
 
 <div id='map' style="width:100%;height:600px"></div>
@@ -98,8 +77,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGVzc2hzMTEiLCJhIjoiY2sxY2xkZTBpMnJvYzNjbmltN
 var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
-center: [-74.50, 40],
-zoom: 9
+center: [-105.3, 40],
+zoom: 8
 });
  
 document.getElementById('move1').addEventListener('click', function() {
@@ -109,6 +88,24 @@ map.fitBounds([[
 -73.514150, -4.577419
 ]]);
 });
+
+document.getElementById('move2').addEventListener('click', function() {
+map.fitBounds([[
+39.319447, 15.759523
+], [
+39.001131, 2.265246
+]]);
+});
+
+document.getElementById('move3').addEventListener('click', function() {
+map.fitBounds([[
+-4.702517, 59.548924 
+], [
+-1.265629, 49.948523
+]]);
+});
+
+
  
 </script>
  
