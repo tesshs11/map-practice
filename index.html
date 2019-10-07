@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>Map Practice</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.2/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.2/mapbox-gl.css' rel='stylesheet' />
+<style>
+body { margin:0; padding:0; }
+#map { 
+position:relative; 
+top:0; bottom:0; width:100%;
+margin-left: 10% }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    background: #0c7be2;
+    position: fixed;
+    height: 100%; /* makes it so the sidebar spans the entire window height */
+    overflow: auto; /* enables sidebar scrolling */
+      }
+    li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    }
+      /* li a:hover {
+        background-color: #555555;
+        color: #FFFFFF;
+      } */
+    li a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+    li a:hover:not(.active){
+        background-color: #555;
+        color: white;
+</style>
+</head>
+<body>
+ 
+<style>
+
+.btn {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 10%;
+height: 40px;
+padding: 10px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+text-align: center;
+color: #fff;
+background: #ee8a65;
+}
+
+#title {display: block;
+position: relative;
+margin: 0px auto;
+width: 10%;
+height: 30px;
+padding: 10px;
+border: none;
+border-radius: 3px;
+font-size: 30px;
+text-align: center;
+color: #fff;
+background: #0c7be2;
+}
+</style>
+
+
+<div id="sidebar">
+    <ul>
+    <li><a class="active" >Go Here</a></li>
+    <li><a>Colombia</a></li>
+    <li><a>Ethiopia</a></li>
+    <li><a>United Kingdom</a></li>
+    </ul>
+    </div>
+<h1 id='title'>Book Map</h1>
+<button class="btn" id='move1'>Colombia</button>
+<button class="btn" id='move2'>Ethiopia</button>
+<button class="btn" id='move3'>United Kingdom</button>
+<br>
+
+<div id='map' style="width:100%;height:600px"></div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoidGVzc2hzMTEiLCJhIjoiY2sxY2xkZTBpMnJvYzNjbmltNG85dnZxbSJ9.Y_wMLXc8EZ36g_2PE6ltsw';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-74.50, 40],
+zoom: 9
+});
+ 
+document.getElementById('move1').addEventListener('click', function() {
+map.fitBounds([[
+-71.909312, 13.116659 
+], [
+-73.514150, -4.577419
+]]);
+});
+ 
+</script>
+ 
+</body>
+</html> 
